@@ -21,23 +21,43 @@
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script>
     var map = L.map('map').setView([41.064752290377633, -8.272018782443237], 10);
+
+    // Add OpenStreetMap tiles as base layer
     var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
+    // Function to get color based on population
+    function getColor(population) {
+      return population > 1000 ? '#800026' :
+             population > 500  ? '#BD0026' :
+             population > 200  ? '#E31A1C' :
+             population > 100  ? '#FC4E2A' :
+             population > 50   ? '#FD8D3C' :
+             population > 20   ? '#FEB24C' :
+             population > 10   ? '#FED976' :
+                                 '#FFEDA0';
+    }
+
+    // Function to define style based on population
+    function style(feature) {
+      return {
+        fillColor: getColor(parseFloat(feature.properties.Populacao)),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.7
+      };
+    }
+
+    // Load GeoJSON from external file using AJAX
     fetch('ContinenteDistritos.geojson')
       .then(response => response.json())
       .then(data => {
-        L.geoJSON(data, {
-          style: function (feature) {
-            return {
-              color: 'blue',
-              weight: 2,
-              fillOpacity: 0.5
-            };
-          }
-        }).addTo(map);
+        // Add GeoJSON layer to the map with defined style
+        L.geoJSON(data, { style: style }).addTo(map);
       })
       .catch(error => {
         console.error('Error loading GeoJSON:', error);
