@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>População por Distrito - Portugual 2021 | WebSIG: Visualizador Simples </title>
+    <title>Densidade Populacional por Distrito - Portugual 2021 | WebSIG: Visualizador Simples </title>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
@@ -11,7 +11,7 @@
 
 <body>
     <div class="navbar-header">
-        <p> População por Distrito - Portugal 2021</p>
+        <p> Densidade Populacional por Distrito- Portugal 2021</p>
         <br> WebSIG: Visualizador Simples</br>
     </div>
     <div id="map"></div>
@@ -35,8 +35,8 @@
         };
 
         info.update = function (props) {
-            this._div.innerHTML = '<h4>População por Distrito</h4>' + (props ?
-                '<b>' + props.Distrito + '</b><br />' + props.Populacao + ' pessoas' +
+            this._div.innerHTML = '<h4>Densidade Populacional por Distrito</h4>' + (props ?
+                '<b>' + props.Distrito + '</b><br />' + props.Populacao + ' habitantes/ Km²' +
                 '</b><br />' + props.N_Concelho + ' número do concelho'
                 : 'Selecione um Distrito');
         };
