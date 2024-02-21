@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Densidade Populacional por Distrito - Portugal 2021 | WebSIG: Visualizador Simples </title>
+    <title>Densidade Populacional por Distrito - Portugual 2021 | WebSIG: Visualizador Simples </title>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/Logo.png" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
@@ -14,10 +15,11 @@
         <img class="logo" style="width:170px; height: 170px;" src="/assets/Logo.png" />
         <div id="map"></div>
     </div>
+    <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="">
-    </script>
+        </script>
     <script>
         var map = L.map('map').setView([41.064752290377633, -8.272018782443237], 8.2);
 
@@ -34,7 +36,7 @@
         };
 
         info.update = function (props) {
-            this._div.innerHTML = '<h4>Densidade Populacional por Distrito</h4>' +  '<div style="text-align: center;"><h4>Portugal 2021</h4></div>'+ (props ?
+            this._div.innerHTML = '<h4>Densidade Populacional por Distrito</h4>' + (props ?
                 '<b>' + props.Distrito + '</b><br />' + props.Populacao + ' habitantes/ Km²' +
                 '</b><br />' + props.N_Concelho + ' número do concelho'
                 : 'Selecione um Distrito');
@@ -93,38 +95,15 @@
                 mouseout: resetHighlight,
                 click: zoomToFeature
             });
-
-            // Define the marker icon size based on the zoom level
-            var iconSize = [100, 40]; // Default icon size
-            if (map.getZoom() <= 7) {
-                iconSize = [50, 20]; // Adjusted icon size for smaller zoom levels
-            }
-
             var centroid = layer.getBounds().getCenter();
             L.marker(centroid, {
                 icon: L.divIcon({
                     className: 'label',
                     html: feature.properties.Distrito,
-                    iconSize: iconSize // Set the icon size dynamically
+                    iconSize: [100, 40]
                 })
             }).addTo(map);
         }
-
-        map.on('zoomend', function () {
-            geojson.eachLayer(function (layer) {
-                var iconSize = [100, 40]; 
-                if (map.getZoom() >= 7) {
-                    iconSize = [50, 20]; 
-                }
-                layer.setIcon(L.divIcon({
-                    className: 'label',
-                    html: layer.feature.properties.Distrito,
-                    iconSize: iconSize 
-                }));
-            });
-        });
-
-        var geojson;
 
         fetch('ContinenteDistritos.geojson')
             .then(response => response.json())
@@ -156,4 +135,5 @@
             });
     </script>
 </body>
+
 </html>
