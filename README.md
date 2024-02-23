@@ -1,10 +1,10 @@
 <h1 align="center">
-  ![earth](https://github.com/RafaelaMirabile/Densidade_Populacional_Portugual_2021/assets/102774311/c6b2c3e0-2888-4dec-bdbb-3c7480940f9a)
-  <a href="#"> R.WEBSIG </a>
+  <img src="./assets/earth.png" style="width:30px"/>
+   <a href="#"> R.WEBSIG </a>
 </h1>
 
 <h3 align="center">
-    WEBSIG platform to visualize population density - Portugual 2021.
+     Platform to visualize population density - Portugual 2021.
 </h3>
 
 <h4 align="center"> 
@@ -13,7 +13,8 @@
 
 <p align="center">
  <a href="#about">About</a> •
- <a href="#how-it-works">How it works</a> • 
+ <a href="#layout">Layout</a> • 
+ <a href="#how-was-build">How was build</a> • 
  <a href="#pre-requisites">Pre-requisites</a> • 
  <a href="#tech-stack">Tech Stack</a> • 
  <a href="#how-to-contribute">How to contribute</a> • 
@@ -27,93 +28,49 @@ Bringing geographical information to all because knowledge should be free.
 
 ---
 
-## How it works
 
-This project is divided into two parts:
-1. Backend (This repository);
-2. Frontend (You can find here: https://github.com/RafaelaMirabile/mywallet-front).
+## Layout
+
+<div align="center">
+  <img src="./assets/deskwebsig.gif"/>
+  <img src="./assets/mobilewebsig.gif" />
+</div>
+
+---
+
+## How was build
+
+Based on data obtained from the 2021 Censo, a GeoJSON was created having as variables the name of the district, respective population density, county number and geographical points to demarcate the multipolygon.
+
 
 ---
 
 ## Pre-requisites
 
 Before you begin, you will need to have the following tools installed on your machine:
-[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/), [VSCode](https://code.visualstudio.com/), [MongoDB](https://www.mongodb.com/docs/).
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) and [VSCode](https://code.visualstudio.com/)
 
+### Running the Project
 
-## Database 
-
-MongoDB: document-oriented NoSQL database. 
-
-``` jsx
-
-// Start mongodb server at terminal 
-$ mongod --dbpath ~/.<dictory where mongodb is installed> 
-
-//Connect to mongodb using the server it //self
-$ mongo
-
-//Create database with collections using //dump file
-
-$ mongorestore --db mywallet --verbose \<path to project repossitory>\dump\mywallet
-
-```
-
-### Running the Backend (server)
+1. Fork the project.
+2. Install the Live Server extension on Visual Studio Code.
 
 ``` jsx
-
-// Clone this repository
-$ git clone git@github.com:RafaelaMirabile/mywallet-back.git
-
-// Access the project folder cmd/terminal
-$ cd mywallet-back
-
-// Install the dependencies
-$ npm install
-
-// Create a .env.dev file and fill it using your environment variables following the .env.example
-
-// Run the application on development mode
-$ npx nodemon src/index.js
-
-// The server listen on port: 5000
-
+// OR click in the link 
 ```
-
----
-
-### Running Tests (Jest | Supertest)
-
-``` jsx
-// Run tests
-$ npm run test
-```
+https://densidade-populacional-portugual-2021.vercel.app/
 
 ---
 
 ## Tech Stack
 
-The following tools were used in the construction of the project-api:
+The following languages were used in the construction of the project:
 
-**Server**  ([NodeJS](https://nodejs.org/en/))
+**Frontend**  ([React](https://reactjs.org/))
 
--   **[Express](https://expressjs.com/)**
--   **[CORS](https://expressjs.com/en/resources/middleware/cors.html)**
--   **[Bcrypt](https://github.com/kelektiv/node.bcrypt.js)**
--   **[DotENV](https://github.com/motdotla/dotenv)**
--   **[UUID](https://github.com/uuidjs/uuid)**
--   **[Joi](https://github.com/hapijs/joi)**
--   **[Jest](https://github.com/facebook/jest)**
--   **[Translate](https://github.com/franciscop/translate)**
-
-
-> See the file  [package.json](https://github.com/RafaelaMirabile/mywallet-back/blob/main/package.json)
-
-**Utilitários**
-
--   Editor:  **[Visual Studio Code](https://code.visualstudio.com/)**
--   API Test:  **[Thunder Client](https://www.thunderclient.io/)**
+-   **[HTML]**
+-   **[CSS]**
+-   **[JavaScript]**
 
 ---
 
