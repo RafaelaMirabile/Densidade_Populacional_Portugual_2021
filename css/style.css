@@ -50,7 +50,7 @@
     background-color: rgb(23, 133, 23);
     color: white;
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
     padding: 6px 4px;
     padding: 16px 34px 16px 34px;
@@ -65,7 +65,8 @@
     font: 16px Arial, Helvetica, sans-serif;
 }
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -85,3 +86,15 @@ html, body {
     height: 150px;
     z-index: 1000;
 }
+
+@media (max-width: 768px) {
+    .logo {
+        display: none;
+    }
+}
+
+.logo-mobile{
+    width:100px; 
+    height: 100px;
+    margin: 0px 70px;
+} 
