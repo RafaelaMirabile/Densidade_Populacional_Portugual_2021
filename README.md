@@ -1,5 +1,6 @@
 <h1 align="center">
-   💰 <a href="#"> R.WEBSIG </a>
+  ![earth](https://github.com/RafaelaMirabile/Densidade_Populacional_Portugual_2021/assets/102774311/c6b2c3e0-2888-4dec-bdbb-3c7480940f9a)
+  <a href="#"> R.WEBSIG </a>
 </h1>
 
 <h3 align="center">
